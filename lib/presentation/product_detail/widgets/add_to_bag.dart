@@ -25,10 +25,17 @@ class AddToBag extends StatelessWidget {
     return BlocListener<ButtonStateCubit,ButtonState>(
       listener: (context, state) {
         if (state is ButtonSuccessState) {
-          AppNavigator.push(context, const CartPage());
-        } 
+          var snackbar = SnackBar(
+            content: const Text('Added to cart successfully!'),
+            behavior: SnackBarBehavior.floating,
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackbar);
+        }
         if (state is ButtonFailureState) {
-          var snackbar = SnackBar(content: Text(state.errorMessage),behavior: SnackBarBehavior.floating,);
+          var snackbar = SnackBar(
+            content: Text(state.errorMessage),
+            behavior: SnackBarBehavior.floating,
+          );
           ScaffoldMessenger.of(context).showSnackBar(snackbar);
         }
       },

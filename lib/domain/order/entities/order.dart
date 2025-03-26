@@ -19,4 +19,8 @@ class OrderEntity {
     required this.code,
     required this.orderStatus
    });
+  @override
+  String toString() {
+    return 'OrderEntity(code: $code, createdDate: $createdDate, totalPrice: $totalPrice, itemCount: $itemCount, shippingAddress: $shippingAddress, products: $products, orderStatus: $orderStatus)';
+  }
 }

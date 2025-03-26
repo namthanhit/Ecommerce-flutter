@@ -5,13 +5,15 @@ import 'package:ecommerce/data/order/models/product_ordered.dart';
 import '../../../domain/order/entities/product_ordered.dart';
 
 class OrderRegistrationReq {
-  final List < ProductOrderedEntity > products;
+  final String code; // ✨ Thêm mã đơn hàng
+  final List<ProductOrderedEntity> products;
   final String createdDate;
   final String shippingAddress;
   final int itemCount;
   final double totalPrice;
 
   OrderRegistrationReq({
+    required this.code, // Thêm vào constructor
     required this.products,
     required this.createdDate,
     required this.itemCount,
@@ -21,12 +23,12 @@ class OrderRegistrationReq {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'code': code,
       'products': products.map((e) => e.fromEntity().toMap()).toList(),
       'createdDate': createdDate,
       'itemCount': itemCount,
       'totalPrice': totalPrice,
-      'shippingAddress' : shippingAddress
+      'shippingAddress': shippingAddress
     };
   }
-
 }

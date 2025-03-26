@@ -21,7 +21,9 @@ dependencies:
   flutter_bloc:
   dartz:
   get_it:
-
+  shared_preferences:
+  firebase_storage:
+  image_picker:
 dev_dependencies:
   flutter_test:
     sdk: flutter
